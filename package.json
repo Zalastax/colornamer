@@ -1,0 +1,18 @@
+{
+  "name": "colornamer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {},
+  "author": "Pierre Kraft",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --optimize-minimize",
+    "start": "webpack-dev-server --watch --open"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "file-loader": "^0.10.1",
+    "webpack": "^2.3.2",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
