@@ -16,5 +16,9 @@ myFormEl.onsubmit = function (e) {
     var colorlist = colorlistEl.value
     var searchColor = +whatEl.value
     var closest = util.closestColor(colorlists[colorlist], searchColor)
-    outEl.innerText = closest.name + " = " + util.hexify(closest.color)
+    outEl.innerHTML = formatOut("", searchColor) + formatOut(closest.name + " = ", closest.color)
+}
+
+function formatOut(text, color) {
+    return '<div style="background-color:' + util.hexColorify(color) + ';"><p>' + text + util.hexify(color) + '</p></div>'
 }

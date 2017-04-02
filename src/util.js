@@ -34,6 +34,11 @@ function hexify(c) {
     return "0x" + (+c).toString(16).toUpperCase()
 }
 
+function hexColorify(c) {
+    return "#" + (+c).toString(16).toUpperCase()
+}
+
 module.exports.colorDistance = colorDistance
 module.exports.closestColor = closestColor
 module.exports.hexify = hexify
+module.exports.hexColorify = hexColorify

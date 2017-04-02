@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,40 +10,54 @@
         * {
             box-sizing: border-box;
         }
-
+        
         body {
             font: 14px/1.5em sans-serif;
             background: #111;
             text-align: center;
             padding: 1em;
         }
-
+        
         @keyframes rainbow {
-            20% {color: red;}
-            40% {color: yellow;}
-            60% {color: lime;}
-            80% {color: blue;}
-            100% {color: orange;}
+            20% {
+                color: red;
+            }
+            40% {
+                color: yellow;
+            }
+            60% {
+                color: lime;
+            }
+            80% {
+                color: blue;
+            }
+            100% {
+                color: orange;
+            }
         }
-
+        
         h1 {
             background-clip: text;
             font-size: 3em;
-            color: #f2f2f2;
-            animation: rainbow 2s infinite;
+            color: orange;
+            animation: rainbow 20s infinite;
+            animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
             text-shadow: 0 4px 0 rgba(0, 0, 0, .1);
         }
-
+        
         h1 a {
             color: inherit;
             text-decoration: none;
         }
-
-        select, button, input {
+        
+        select,
+        button,
+        input {
             font: 1.25em/1.5em sans-serif;
         }
-
-        select, input {
+        
+        select,
+        input {
             border: 1px solid #DDDDDD;
             border-radius: 2px;
             background: white;
@@ -50,12 +65,12 @@
             display: inline-block;
             width: 100%;
         }
-
+        
         input:focus {
             border-color: #44A4FF;
             outline: 0;
         }
-
+        
         form {
             background: white;
             margin: 0 auto;
@@ -65,17 +80,14 @@
             box-shadow: 0 4px 0 rgba(0, 0, 0, .1);
             text-align: left;
         }
-
-        form div {
-        }
-
+        
         form div label {
             padding: .5em 0;
             text-transform: uppercase;
             display: block;
             font-weight: bold;
         }
-
+        
         button {
             margin-top: .75em;
             background: #44A4FF;
@@ -86,20 +98,28 @@
             text-transform: uppercase;
             cursor: pointer;
         }
-
+        
         button:hover {
             background: #22A0CC;
         }
-
+        
         .center {
             text-align: center;
         }
-
+        
         #out {
             font-weight: bold;
         }
+        
+        #out>div {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     </style>
 </head>
+
 <body>
     <h1><a href="./">Colornamer</a></h1>
     <form id="myForm">
@@ -117,8 +137,9 @@
         <div class="center">
             <button type="submit">Find color name</button>
         </div>
-        <p id="out" class="center"></p>
+        <div id="out" class="center" />
     </form>
     <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
 </body>
+
 </html>
