@@ -5,16 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Colornamer</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 14px/1.5em sans-serif;
+            background: #111;
+            text-align: center;
+            padding: 1em;
+        }
+
+        @keyframes rainbow {
+            20% {color: red;}
+            40% {color: yellow;}
+            60% {color: lime;}
+            80% {color: blue;}
+            100% {color: orange;}
+        }
+
+        h1 {
+            background-clip: text;
+            font-size: 3em;
+            color: #f2f2f2;
+            animation: rainbow 2s infinite;
+            text-shadow: 0 4px 0 rgba(0, 0, 0, .1);
+        }
+
+        h1 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        select, button, input {
+            font: 1.25em/1.5em sans-serif;
+        }
+
+        select, input {
+            border: 1px solid #DDDDDD;
+            border-radius: 2px;
+            background: white;
+            padding: .25em .5em;
+            display: inline-block;
+            width: 100%;
+        }
+
+        input:focus {
+            border-color: #44A4FF;
+            outline: 0;
+        }
+
+        form {
+            background: white;
+            margin: 0 auto;
+            width: 400px;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, .1);
+            text-align: left;
+        }
+
+        form div {
+        }
+
+        form div label {
+            padding: .5em 0;
+            text-transform: uppercase;
+            display: block;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: .75em;
+            background: #44A4FF;
+            border: 1px solid #22A0CC;
+            border-radius: 2px;
+            padding: .25em .75em;
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #22A0CC;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        #out {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
+    <h1><a href="./">Colornamer</a></h1>
     <form id="myForm">
-        <select id="colorlist">
-            <option value="official">Official</option>>
-            <option value="xkcd">XKCD</option>
-        </select>
-        <input id="what" value="0xB03060" />
-        <button type="submit">Find</button>
-        <p id="out"></p>
+        <div>
+            <label for="colorlist">Preset:</label>
+            <select id="colorlist">
+                <option value="official">Official</option>
+                <option value="xkcd">XKCD</option>
+            </select>
+        </div>
+        <div>
+            <label for="what">Color:</label>
+            <input id="what" value="0xB03060" />
+        </div>
+        <div class="center">
+            <button type="submit">Find color name</button>
+        </div>
+        <p id="out" class="center"></p>
     </form>
     <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
 </body>
