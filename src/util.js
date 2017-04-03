@@ -38,7 +38,23 @@ function hexColorify(c) {
     return "#" + (+c).toString(16).toUpperCase()
 }
 
+function luma(c) {
+    var rgb = +c;
+    var r = (rgb >> 16) & 0xff;
+    var g = (rgb >>  8) & 0xff;
+    var b = (rgb >>  0) & 0xff;
+
+    return  0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+}
+
+function isDark(c) {
+    return luma(c) < 40;
+}
+
+
 module.exports.colorDistance = colorDistance
 module.exports.closestColor = closestColor
 module.exports.hexify = hexify
 module.exports.hexColorify = hexColorify
+module.exports.luma = luma
+module.exports.isDark = isDark

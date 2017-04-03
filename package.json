@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --optimize-minimize",
+    "deploy": "yarn build && git add -f build && git commit -m \"dist subtree\" && git push origin `git subtree split --prefix build master`:gh-pages --force && git reset HEAD~1",
     "start": "webpack-dev-server --watch --open"
   },
   "dependencies": {},

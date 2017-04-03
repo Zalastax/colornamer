@@ -20,5 +20,6 @@ myFormEl.onsubmit = function (e) {
 }
 
 function formatOut(text, color) {
-    return '<div style="background-color:' + util.hexColorify(color) + ';"><p>' + text + util.hexify(color) + '</p></div>'
+    return '<div style="background-color:' + util.hexColorify(color) + ';color:' + (util.isDark(color) ? 'black' : 'white' ) + '"><p>' +
+                text + util.hexify(color) + '</p></div>'
 }
