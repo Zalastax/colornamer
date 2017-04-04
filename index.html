@@ -1,19 +1,182 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Colornamer</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font: 14px/1.5em sans-serif;
+            background: #111;
+            text-align: center;
+            padding: 1em;
+        }
+        
+        @keyframes rainbow {
+            20% {
+                color: red;
+            }
+            40% {
+                color: yellow;
+            }
+            60% {
+                color: lime;
+            }
+            80% {
+                color: blue;
+            }
+            100% {
+                color: orange;
+            }
+        }
+        
+        h1 {
+            background-clip: text;
+            font-size: 3em;
+            color: orange;
+            animation: rainbow 20s infinite;
+            animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+            text-shadow: 0 4px 0 rgba(0, 0, 0, .1);
+        }
+        
+        h1 a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        select,
+        button,
+        input {
+            font: 1.25em/1.5em sans-serif;
+        }
+        
+        select,
+        input {
+            border: 1px solid #DDDDDD;
+            border-radius: 2px;
+            background: white;
+            padding: .25em .5em;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        input:focus {
+            border-color: #44A4FF;
+            outline: 0;
+        }
+        
+        #container {
+            background: white;
+            margin: 0 auto;
+            width: 400px;
+            padding: 1em;
+            border-radius: 10px;
+            box-shadow: 0 4px 0 rgba(0, 0, 0, .1);
+            text-align: left;
+        }
+        
+        #container div label {
+            padding: .5em 0;
+            text-transform: uppercase;
+            display: block;
+            font-weight: bold;
+        }
+        
+        button {
+            margin-top: .75em;
+            background: #44A4FF;
+            border: 1px solid #22A0CC;
+            border-radius: 2px;
+            padding: .25em .75em;
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #22A0CC;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        #out {
+            font-weight: bold;
+            padding-top: 1em;
+        }
+        
+        #out>div {
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #picker-wrapper {
+            width: 200px;
+            position: relative;
+            margin-right: 1em;
+        }
+        #slider-wrapper {
+            width: 30px;
+            position: relative;
+            float: left;
+        }
+        #picker-indicator {
+            width: 3px;
+            height: 3px;
+            position: absolute;
+            border: 1px solid white;
+        }
+        #slider-indicator {
+            width: 100%;
+            height: 10px;
+            position: absolute;
+            border: 1px solid black;
+        }
+        #colorpicker {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 1em;
+        }
+    </style>
 </head>
 
 <body>
-    <form id="myForm">
-        <select id="colorlist">
-            <option value="official">Official</option>>
-            <option value="xkcd">XKCD</option>
-        </select>
-        <input id="what" value="0xB03060" />
-        <button type="submit">Find</button>
-        <p id="out"></p>
-    </form>
+    <h1><a href="./">Colornamer</a></h1>
+    <div id="container">
+        <div>
+            <label for="colorlist">Preset:</label>
+            <select id="colorlist">
+                <option value="official">Official</option>
+                <option value="xkcd">XKCD</option>
+            </select>
+        </div>
+        <div>
+            <label for="what">Color:</label>
+            <input id="what" value="0x800000" />
+        </div>
+        <div id="colorpicker">
+            <div id="picker-wrapper">
+            <div id="picker"></div>
+            <div id="picker-indicator"></div>
+            </div>
+            <div id="slider-wrapper">
+                <div id="slider"></div>
+                <div id="slider-indicator"></div>
+            </div>
+        </div>
+
+        <div id="out" class="center" />
+    </div>
     <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
 </body>
 
